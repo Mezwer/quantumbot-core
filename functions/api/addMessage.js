@@ -9,10 +9,7 @@ exports.addMessage = functions.https.onCall(async (data, context) => {
         // check that fields are correct
         if (!data.text || !data.userID) {
             logger.log("Required fields (text or userID) are missing");
-            throw new functions.https.HttpsError(
-                "invalid-argument",
-                "Required fields (text or userID) are missing"
-            );
+            throw new functions.https.HttpsError("invalid-argument", "Required fields (text or userID) are missing");
         }
 
         // construct the data for message
@@ -30,11 +27,12 @@ exports.addMessage = functions.https.onCall(async (data, context) => {
             .collection("messages")
             .add(messageData);
         
+        // success log and return
         logger.log("Successfully added message, messageID: ", messageRef.id);
         return {status: "success", messageID: messageRef.id};
     } catch (error) {
+        // error log
         logger.error("Error adding message: ", error);
-
         throw new functions.https.HttpsError("unknown", "Error adding message", error.message);
     }
 });
