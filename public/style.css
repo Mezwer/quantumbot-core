@@ -1,0 +1,43 @@
+.center {
+    position: absolute;
+    top: 10%;
+    bottom: 15%;
+    left: 0;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    border-color: black;
+    border-style: solid;
+    border-radius: 25px;
+    list-style-type: none;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.field {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 14rem;
+}
+
+.field > * {
+    flex: 1;
+}
+
+.outgoing {
+    text-align: right;
+    border-color: skyblue !important;
+    background-color: skyblue !important;
+}
+
+.center > li {
+    border-style: solid;
+    border-radius: 15px;
+    padding: 5px;
+    border-color: gray;
+    background-color: gray;
+    margin: 1px;
+}

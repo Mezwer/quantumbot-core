@@ -20,10 +20,7 @@ exports.addMessage = functions.https.onCall(async (data, context) => {
         };
 
         // add users message in firebase
-        const messageRef = await admin
-            .firestore()
-            .collection("chats")
-            .doc(userID)
+        const messageRef = await admin.firestore()
             .collection("messages")
             .add(messageData);
         
